@@ -7,10 +7,13 @@ import MovieDetails from './MovieDetails';
 function SideBar() {
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
+    const [isSearching, setIsSearching] = useState(false);
+    const [hasSearched, setHasSearched] = useState(false);
 
-
-    const handleSearch = (results) => {
+    const handleSearch = (results, isLoading, hasSearched) => {
         setMovies(results);
+        setIsSearching(isLoading);
+        setHasSearched(hasSearched);
         setSelectedMovie(null); // Clear selected movie when new search is performed
     };
 
@@ -19,12 +22,12 @@ function SideBar() {
     };
 
     return (
-        <div className="flex h-screen">
-            <div className="w-1/2 p-4 overflow-y-auto">
+        <div className="flex h-screen w-full">
+            <div className="w-1/4 p-4 overflow-y-auto">
                 <SearchBar onSearch={handleSearch} />
-                <MovieList movies={movies} onSelectMovie={handleSelectMovie} />
+                <MovieList movies={movies} onSelectMovie={handleSelectMovie} isSearching={isSearching} hasSearched={hasSearched}/>
             </div>
-            <div className="w-1/2 p-4 overflow-y-auto">
+            <div className="w-3/4 p-4 overflow-y-auto">
                 {selectedMovie ? (
                     <MovieDetails movie={selectedMovie} />
                 ) : (
