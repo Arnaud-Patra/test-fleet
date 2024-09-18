@@ -21,6 +21,12 @@ The movie app should use data coming from themovieDB API:
 - React Query
 - React Hook Form
 
+For python, we use :
+- numpy
+- sklearn
+- pandas
+- mysql-connector-python
+
 ## Text editor used
 
 - Cursor
