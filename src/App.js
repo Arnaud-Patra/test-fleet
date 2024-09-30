@@ -1,11 +1,11 @@
 import './App.css';
-import SideBar from './components/SideBar'; 
+import MovieExplorer from './components/MovieExplorer'; 
 
 function App() {
   return (
     <div className="App">
       <div className="flex">
-        <SideBar />
+        <MovieExplorer />
       </div>
     </div>
   );
